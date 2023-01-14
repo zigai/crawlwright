@@ -37,3 +37,6 @@ def load_crawler_opts(
     elif isinstance(opts, CrawlerOptions):
         return opts
     raise TypeError(type(opts))
+
+
+__all__ = ["CrawlerOptions", "load_crawler_opts"]

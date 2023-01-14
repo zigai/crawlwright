@@ -5,6 +5,8 @@ from diskcache import Index
 from playwright._impl._api_types import Error, TimeoutError
 from protego import Protego
 
+from crawlwright.util import get_robots_txt_url
+
 
 class BaseRobotsTxtChecker:
     def __init__(self, cache_path: str) -> None:
@@ -23,6 +25,9 @@ class RobotsTxtChecker(BaseRobotsTxtChecker):
         base_url = urlparse(url).netloc
         if robots_txt := self.storage.get(url):
             return Protego.parse(robots_txt).can_fetch(url, user_agent)
-        robots_txt = requests.get(url).text
+        robots_txt = requests.get(get_robots_txt_url(url)).text
         self.storage[base_url] = robots_txt
         return Protego.parse(robots_txt).can_fetch(url, user_agent)
+
+
+__all__ = ["BaseRobotsTxtChecker", "RobotsTxtChecker"]

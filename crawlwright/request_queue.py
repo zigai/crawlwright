@@ -4,7 +4,7 @@ from typing import Iterable
 
 from diskcache import Index
 from stdl.dataclass import Data, dataclass
-from stdl.fs import path_join
+from stdl.fs import joinpath
 from util import assert_url_valid
 
 
@@ -19,9 +19,9 @@ class CrawlRequest(Data):
 class RequestQueue:
     def __init__(self, directory: str | Path) -> None:
         self.directory = os.path.abspath(str(directory))
-        self._request_cache_dir = path_join(self.directory, "requests")
-        self._failed_cache_dir = path_join(self.directory, "failed")
-        self._complete_cache_dir = path_join(self.directory, "complete")
+        self._request_cache_dir = joinpath(self.directory, "requests")
+        self._failed_cache_dir = joinpath(self.directory, "failed")
+        self._complete_cache_dir = joinpath(self.directory, "complete")
         self.requests = Index(self._request_cache_dir)
         self.failed = Index(self._failed_cache_dir)
         self.complete = Index(self._complete_cache_dir)
@@ -68,3 +68,6 @@ class RequestQueue:
         self.requests.clear()
         self.failed.clear()
         self.complete.clear()
+
+
+__all__ = ["CrawlRequest", "RequestQueue"]
