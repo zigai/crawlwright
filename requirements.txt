@@ -1,0 +1,9 @@
+aiolimiter==1.0.0
+diskcache==5.4.0
+playwright==1.29.0
+protego==0.2.1
+pydantic==1.10.4
+requests==2.25.1
+stdl>=0.4.1
+validators==0.20.0
+wrighter==0.1.1
