@@ -8,8 +8,8 @@ REQUIREMENTS = (HERE / "requirements.txt").read_text()
 
 setup(
     name="crawlwright",
-    version="0.1.0",
-    description="",
+    version="0.0.1",
+    description="Web crawler based on Playwright",
     long_description=README,
     long_description_content_type="text/markdown",
     author="Žiga Ivanšek",

@@ -131,3 +131,4 @@ complete/
 failed/
 requests/
 example*.py
+*_storage*
