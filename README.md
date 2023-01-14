@@ -1,6 +1,11 @@
 # Crawlwright
 
+Crawlwright is an asynchronous web crawler powered by Playwright and Wrighter. 
+
+**NOTE: this project is still under development.**
+
 # Installation
+Requires python 3.10+
 #### From source
 ```
 pip install git+https://github.com/zigai/crawlwright.git
